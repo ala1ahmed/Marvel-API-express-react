@@ -1,6 +1,7 @@
 import { getCharacters } from "./actions/marvel";
 import {useState,useEffect} from'react';
 import Hero from "./components/Hero";
+import './App.css';
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
 
   return (
   <div className="App">
-    <div className="Heros">
+    <div className="heros">
       {marvelCharacters.map((hero,index)=>(<Hero key={index} name={hero.name} thumbnail={hero.thumbnail} description={hero.description} />))}
 
     </div>
