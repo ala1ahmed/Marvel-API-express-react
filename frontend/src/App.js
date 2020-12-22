@@ -6,19 +6,21 @@ function App() {
 
   const [pageNumber, setpageNumber] = useState(1);
   const [marvelCharacters, setmarvelCharacters] = useState([])
+
+  useEffect(()=>{
+    getCharacters(pageNumber).then((herosData)=>{
+      setmarvelCharacters(herosData)
+    })
+  });
   
 
   const nextPage = async() =>{
     setpageNumber(pageNumber+1);
-    const data=await getCharacters(pageNumber);
-    setmarvelCharacters(data);
   }
 
   const previousPage = async()=> {
     if(pageNumber>1)
       setpageNumber(pageNumber-1);
-      const data=await getCharacters(pageNumber);
-    setmarvelCharacters(data);
   }
 
   return (
