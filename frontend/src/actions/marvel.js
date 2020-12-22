@@ -1,17 +1,17 @@
 import api from '../utils/api';
 
 
-export const getCharacters = (pageNumber) => {
+export const getCharacters = async (pageNumber) => {
 
     try {
 
-        const res = axios.get("/charachters",{
+        const res = await api.get("/charachters",{
             params:{
                 page:pageNumber
             }
         });
 
-        console.log(res);
+        return res.data.data.results;
 
         
     } catch (error) {
