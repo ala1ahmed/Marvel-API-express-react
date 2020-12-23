@@ -12,7 +12,7 @@ function App() {
     getCharacters(pageNumber).then((herosData)=>{
       setmarvelCharacters(herosData)
     })
-  });
+  },[pageNumber]);
   
 
   const nextPage = async() =>{
@@ -27,7 +27,7 @@ function App() {
   return (
   <div className="App">
     <div className="heros">
-      {marvelCharacters.map((hero,index)=>(<Hero key={index} name={hero.name} thumbnail={hero.thumbnail} description={hero.description} />))}
+      {marvelCharacters.map((hero,index)=>(<Hero key={hero.id} name={hero.name} thumbnail={hero.thumbnail} description={hero.description} />))}
 
     </div>
     {pageNumber}
